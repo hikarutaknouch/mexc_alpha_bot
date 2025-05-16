@@ -1,0 +1,8 @@
+# 秘密情報
+.env
+*.sqlite
+*.db
+
+# Python バイトコード
+__pycache__/
+*.py[cod].env
