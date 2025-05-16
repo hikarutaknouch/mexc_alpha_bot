@@ -8,3 +8,4 @@ __pycache__/
 *.py[cod].env
 .DS_Store
 mexc_alpha_bot/.git
+.DS_Store
