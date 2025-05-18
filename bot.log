@@ -1,0 +1,58 @@
+2025-05-18 21:40:13,413 INFO: ====================================
+2025-05-18 21:40:13,413 INFO: MEXC出来高トップ10トレードボット 開始
+2025-05-18 21:40:13,413 INFO: モード: テスト（DRY RUN）
+2025-05-18 21:40:13,414 INFO: 投資設定: 口座の10.0%（最大1000.0 USDT）
+2025-05-18 21:40:13,414 INFO: ====================================
+2025-05-18 21:40:13,417 INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-18 21:40:13,417 INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-18 21:40:13,417 CRITICAL: 致命的エラー: no running event loop
+Traceback (most recent call last):
+  File "/Users/hikaru/Projects/GitHub/mexc_alpha_bot/bot.py", line 756, in main
+    sched.start()
+    ~~~~~~~~~~~^^
+  File "/Users/hikaru/Projects/GitHub/mexc_alpha_bot/venv/lib/python3.13/site-packages/apscheduler/schedulers/asyncio.py", line 35, in start
+    self._eventloop = asyncio.get_running_loop()
+                      ~~~~~~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: no running event loop
+2025-05-18 21:46:11,438 INFO: ====================================
+2025-05-18 21:46:11,438 INFO: MEXC出来高トップ10トレードボット 開始
+2025-05-18 21:46:11,438 INFO: モード: テスト（DRY RUN）
+2025-05-18 21:46:11,438 INFO: 投資設定: 口座の10.0%（最大1000.0 USDT）
+2025-05-18 21:46:11,438 INFO: ====================================
+2025-05-18 21:46:11,442 INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-18 21:46:11,443 INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-18 21:46:11,443 INFO: Added job "enter_positions" to job store "default"
+2025-05-18 21:46:11,443 INFO: Added job "health_check" to job store "default"
+2025-05-18 21:46:11,443 INFO: Scheduler started
+2025-05-18 21:46:11,443 INFO: メインスケジューラ開始
+2025-05-18 21:46:11,443 CRITICAL: 致命的エラー: This event loop is already running
+Traceback (most recent call last):
+  File "/Users/hikaru/Projects/GitHub/mexc_alpha_bot/bot.py", line 766, in main
+    asyncio.get_event_loop().run_forever()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 674, in run_forever
+    self._run_forever_setup()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 644, in _run_forever_setup
+    self._check_running()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 631, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+2025-05-18 21:46:11,449 CRITICAL: 起動失敗: asyncio.run() cannot be called from a running event loop
+Traceback (most recent call last):
+  File "/Users/hikaru/Projects/GitHub/mexc_alpha_bot/bot.py", line 789, in <module>
+    loop.run_until_complete(main())
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/hikaru/Projects/GitHub/mexc_alpha_bot/bot.py", line 781, in main
+    asyncio.run(exchange.close())  # コネクタリーク防止
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 191, in run
+    raise RuntimeError(
+        "asyncio.run() cannot be called from a running event loop")
+RuntimeError: asyncio.run() cannot be called from a running event loop
+2025-05-18 21:46:11,802 ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<scheduled_check() running at /Users/hikaru/Projects/GitHub/mexc_alpha_bot/bot.py:670>>

@@ -722,7 +722,7 @@ async def health_check() -> None:
             send_notification(f"⚠️ 健全性チェック失敗: {e}")
 
 # ── スケジューラ ────────────────────────
-def main() -> None:
+async def main():
     """メインエントリーポイント"""
     global exchange
     
@@ -742,7 +742,7 @@ def main() -> None:
         
         # WebSocket初期化（設定されている場合）
         if USE_WEBSOCKET:
-            asyncio.get_event_loop().create_task(initialize_websocket())
+            await initialize_websocket()
             
         # メインスケジューラ設定
         sched = AsyncIOScheduler(timezone=UTC)
@@ -757,14 +757,20 @@ def main() -> None:
         logger.info(f"メインスケジューラ開始")
         
         # 動的なポジションチェックを開始
-        asyncio.get_event_loop().create_task(schedule_dynamic_checks())
+        await schedule_dynamic_checks()
         
         # 通知送信（設定されている場合）
         if NOTIFICATION_ENABLED:
             send_notification("🚀 ボット起動: MEXC出来高トップ10トレーダー")
         
-        asyncio.get_event_loop().run_forever()
-    
+        # この行を削除または修正
+        # asyncio.get_event_loop().run_forever()
+        
+        # 代わりに、十分な時間待機するか、イベントを待ちます
+        # 例えば：
+        while True:
+            await asyncio.sleep(3600)  # 1時間ごとに確認
+            
     except (KeyboardInterrupt, SystemExit):
         logger.info("ボット終了中...")
         # 通知送信（設定されている場合）
@@ -777,23 +783,22 @@ def main() -> None:
         if NOTIFICATION_ENABLED:
             send_notification(f"❌ 致命的エラー: {e}")
     finally:
-        if exchange:
-            asyncio.run(exchange.close())  # コネクタリーク防止
+    if exchange:
+        try:
+            await exchange.close()  # asyncioのコンテキスト内でawaitを使用
+        except Exception as e:
+            logger.error(f"接続クローズエラー: {e}")
 
 # ── エントリーポイント ───────────────────
 if __name__ == "__main__":
     try:
-        main()
+        # シンプルにasyncio.runを使用
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logger.info("ユーザーによる中断")
     except Exception as e:
         logger.critical(f"起動失敗: {e}", exc_info=True)
         log_error(f"起動失敗: {e}")
         # 通知送信（設定されている場合）
         if NOTIFICATION_ENABLED:
             send_notification(f"❌ 起動失敗: {e}")
-    finally:
-        # 非同期ループがすでに閉じている場合に備える
-        try:
-            if exchange:
-                asyncio.run(exchange.close())
-        except:
-            pass
