@@ -783,11 +783,12 @@ async def main():
         if NOTIFICATION_ENABLED:
             send_notification(f"❌ 致命的エラー: {e}")
     finally:
-    if exchange:
-        try:
-            await exchange.close()  # asyncioのコンテキスト内でawaitを使用
-        except Exception as e:
-            logger.error(f"接続クローズエラー: {e}")
+        if exchange:
+            try:
+                await exchange.close()  # asyncioのコンテキスト内でawaitを使用
+            except Exception as e:
+                logger.error(f"接続クローズエラー: {e}")
+
 
 # ── エントリーポイント ───────────────────
 if __name__ == "__main__":

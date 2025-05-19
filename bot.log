@@ -56,3 +56,32 @@ Traceback (most recent call last):
 RuntimeError: asyncio.run() cannot be called from a running event loop
 2025-05-18 21:46:11,802 ERROR: Task was destroyed but it is pending!
 task: <Task pending name='Task-3' coro=<scheduled_check() running at /Users/hikaru/Projects/GitHub/mexc_alpha_bot/bot.py:670>>
+2025-05-18 22:04:24,164 INFO: ====================================
+2025-05-18 22:04:24,164 INFO: MEXC出来高トップ10トレードボット 開始
+2025-05-18 22:04:24,164 INFO: モード: テスト（DRY RUN）
+2025-05-18 22:04:24,164 INFO: 投資設定: 口座の10.0%（最大1000.0 USDT）
+2025-05-18 22:04:24,164 INFO: ====================================
+2025-05-18 22:04:24,168 INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-18 22:04:24,168 INFO: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-18 22:04:24,169 INFO: Added job "enter_positions" to job store "default"
+2025-05-18 22:04:24,169 INFO: Added job "health_check" to job store "default"
+2025-05-18 22:04:24,169 INFO: Scheduler started
+2025-05-18 22:04:24,169 INFO: メインスケジューラ開始
+2025-05-18 22:05:24,175 INFO: Running job "health_check (trigger: interval[1:00:00], next run at: 2025-05-18 14:05:24 UTC)" (scheduled at 2025-05-18 13:05:24.168669+00:00)
+2025-05-18 22:05:32,396 WARNING: 古いキャッシュエントリがあります: tickers (29126225分), balances (29126225分), symbols (29126225分)
+2025-05-18 22:05:32,398 INFO: 健全性チェック: OK
+2025-05-18 22:05:32,398 INFO: Job "health_check (trigger: interval[1:00:00], next run at: 2025-05-18 14:05:24 UTC)" executed successfully
+2025-05-18 23:10:30,168 WARNING: Run time of job "health_check (trigger: interval[1:00:00], next run at: 2025-05-18 15:05:24 UTC)" was missed by 0:05:05.998772
+2025-05-19 11:14:10,413 WARNING: Run time of job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 03:05:24 UTC)" was missed by 0:08:46.244113
+2025-05-19 11:14:10,415 WARNING: Run time of job "enter_positions (trigger: cron[hour='0', minute='1'], next run at: 2025-05-20 00:01:00 UTC)" was missed by 2:13:10.415385
+2025-05-19 13:13:58,488 WARNING: Run time of job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 05:05:24 UTC)" was missed by 0:08:34.317466
+2025-05-19 14:19:29,850 WARNING: Run time of job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 06:05:24 UTC)" was missed by 0:14:05.680787
+2025-05-19 16:42:03,056 WARNING: Run time of job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 08:05:24 UTC)" was missed by 0:36:38.886665
+2025-05-19 17:46:53,489 WARNING: Run time of job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 09:05:24 UTC)" was missed by 0:41:29.319668
+2025-05-19 18:53:14,069 WARNING: Run time of job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 10:05:24 UTC)" was missed by 0:47:49.900447
+2025-05-19 19:05:24,178 INFO: Running job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 11:05:24 UTC)" (scheduled at 2025-05-19 10:05:24.168669+00:00)
+2025-05-19 19:05:24,405 WARNING: 古いキャッシュエントリがあります: tickers (29127485分), balances (29127485分), symbols (29127485分)
+2025-05-19 19:05:24,406 INFO: 健全性チェック: OK
+2025-05-19 19:05:24,406 INFO: Job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 11:05:24 UTC)" executed successfully
+2025-05-19 20:07:28,362 WARNING: Run time of job "health_check (trigger: interval[1:00:00], next run at: 2025-05-19 12:05:24 UTC)" was missed by 0:02:04.193214
+2025-05-19 20:21:53,574 INFO: ユーザーによる中断
